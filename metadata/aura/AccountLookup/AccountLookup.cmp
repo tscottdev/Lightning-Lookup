@@ -1,0 +1,25 @@
+<!--
+(c) Tony Scott. This code is provided as is and without warranty of any kind.
+
+This work by Tony Scott is licensed under a Creative Commons Attribution 3.0 Unported License.
+http://creativecommons.org/licenses/by/3.0/deed.en_US
+-->
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <!-- Attributes -->
+    <aura:attribute name="recordId" type="Id" description="The current record Id to display" />
+    
+    <!-- Event handlers -->
+    <aura:handler name="updateLookupIdEvent" event="c:UpdateLookupId" action="{!c.handleAccountIdUpdate}"/>
+    <aura:handler name="clearLookupIdEvent" event="c:ClearLookupId" action="{!c.handleAccountIdClear}"/>
+    
+    <!-- Lookup component -->
+	<c:LookupSObject label="Account" pluralLabel="Accounts" sObjectAPIName="Account" 
+		listIconSVGPath="/resource/SLDS092/assets/icons/standard-sprite/svg/symbols.svg#account"
+		listIconClass="slds-icon-standard-account"
+	/>
+
+    <!-- Record view -->
+	<aura:if isTrue="{!v.recordId!=null}">
+    	<force:recordView recordId="{!v.recordId}" />
+    </aura:if>
+</aura:component>
