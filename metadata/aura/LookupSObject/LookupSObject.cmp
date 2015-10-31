@@ -22,6 +22,8 @@ http://creativecommons.org/licenses/by/3.0/deed.en_US
         description="The SLDS class to use for the icon." />
     <aura:attribute name="searchString" type="String" 
         description="The search string to find." />
+    <aura:attribute name="matches" type="LookupSObjectController.Result[]"
+        description="The resulting matches returned by the Apex controller." />
 
     <!-- Events -->
 	<aura:registerEvent name="updateLookupIdEvent" type="c:UpdateLookupId"/>    
@@ -60,9 +62,15 @@ http://creativecommons.org/licenses/by/3.0/deed.en_US
                     </button>
                 </div>
                 <ul aura:id="lookuplist-items" class="slds-lookup__list" role="presentation">
+                    <aura:iteration items="{!v.matches}" var="match">
+                        <li class="slds-lookup__item">
+                            <a id="{!globalId + '_id_' + match.SObjectId}" role="option" onclick="{!c.select}">
+                                <c:svg class="{!'slds-icon ' + v.listIconClass + ' slds-icon--small'}" xlinkHref="{!v.listIconSVGPath}" />{!match.SObjectLabel}
+                            </a>
+                        </li>
+                    </aura:iteration>
                 </ul>
             </div>
         </div>
     </div>
-
 </aura:component>
