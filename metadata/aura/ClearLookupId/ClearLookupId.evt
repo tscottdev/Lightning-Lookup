@@ -4,4 +4,6 @@
 This work by Tony Scott is licensed under a Creative Commons Attribution 3.0 Unported License.
 http://creativecommons.org/licenses/by/3.0/deed.en_US
 -->
-<aura:event type="COMPONENT" description="Clear the Lookup" />
+<aura:event type="COMPONENT" description="Clear the Lookup">
+    <aura:attribute name="instanceId" type="String" required="true" description="The id to identify the instance the component" />
+</aura:event>

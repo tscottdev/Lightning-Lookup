@@ -99,9 +99,12 @@
         // Create the UpdateLookupId event
         var updateEvent = cmp.getEvent("updateLookupIdEvent");
         
-        // Populate the event with the selected Object Id
+        // Get the Instance Id of the Component
+        var instanceId = cmp.get('v.instanceId');
+
+        // Populate the event with the selected Object Id and Instance Id
         updateEvent.setParams({
-            "sObjectId" : objectId
+            "sObjectId" : objectId, "instanceId" : instanceId
         });
 
         // Fire the event
@@ -134,6 +137,14 @@
     clearSelection : function(cmp) {
         // Create the ClearLookupId event
         var clearEvent = cmp.getEvent("clearLookupIdEvent");
+
+        // Get the Instance Id of the Component
+        var instanceId = cmp.get('v.instanceId');
+
+        // Populate the event with the Instance Id
+        clearEvent.setParams({
+            "instanceId" : instanceId
+        });
         
         // Fire the event
         clearEvent.fire();

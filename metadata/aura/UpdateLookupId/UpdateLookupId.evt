@@ -6,4 +6,5 @@ http://creativecommons.org/licenses/by/3.0/deed.en_US
 -->
 <aura:event type="COMPONENT" description="Update Lookup Id" >
     <aura:attribute name="sObjectId" type="Id" required="true" description="The Id of the selected SObject." />
+    <aura:attribute name="instanceId" type="String" required="true" description="The id to identify the instance the component" />
 </aura:event>

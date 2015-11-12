@@ -13,10 +13,10 @@ http://creativecommons.org/licenses/by/3.0/deed.en_US
     <aura:handler name="clearLookupIdEvent" event="c:ClearLookupId" action="{!c.handleAccountIdClear}"/>
     
     <!-- Lookup component -->
-	<c:LookupSObject label="Account" pluralLabel="Accounts" sObjectAPIName="Account" 
-		listIconSVGPath="/resource/SLDS092/assets/icons/standard-sprite/svg/symbols.svg#account"
-		listIconClass="slds-icon-standard-account"
-	/>
+    <c:LookupSObject label="Account" pluralLabel="Accounts" sObjectAPIName="Account" instanceId="MyAccount"
+    	listIconSVGPath="/resource/SLDS092/assets/icons/standard-sprite/svg/symbols.svg#account"
+    	listIconClass="slds-icon-standard-account"
+    />
 
     <!-- Record view -->
 	<aura:if isTrue="{!v.recordId!=null}">
